@@ -1,0 +1,22 @@
+using CleanArchitecture.Application.Abstractions.Data;
+using CleanArchitecture.Application.Abstractions.Messaging;
+
+namespace CleanArchitecture.Application.Features.Todos.Delete;
+
+using Application.Abstractions.Data;
+using Application.Abstractions.Messaging;
+using Domain.Common;
+
+public sealed class DeleteTodoCommandHandler(IAppDbContext dbContext) : ICommandHandler<DeleteTodoCommand>
+{
+    public async Task<Result> HandleAsync(DeleteTodoCommand command, CancellationToken cancellationToken = default)
+    {
+        var todo = await dbContext.Todos.FindAsync([command.Id], cancellationToken);
+        if (todo is null)
+            return Result.Failure(Error.NotFound("Todo.NotFound", $"Todo with ID '{command.Id}' was not found."));
+
+        dbContext.Todos.Remove(todo);
+        await dbContext.SaveChangesAsync(cancellationToken);
+        return Result.Success();
+    }
+}
