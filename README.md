@@ -1,4 +1,4 @@
-# CWM Clean Architecture Template
+# Clean Architecture Template
 
 **v1.0.0** | .NET 10 | C# 14 | Aspire 13 | EF Core 10 | xUnit v3
 
