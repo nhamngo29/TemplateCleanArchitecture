@@ -55,15 +55,15 @@ Built with the latest packages, zero commercial dependencies, and everything you
 
 ```
 ├── src/
-│   ├── CWM.CleanArchitecture.Domain/           # Entities, value objects, repository interfaces
-│   ├── CWM.CleanArchitecture.Application/       # CQRS commands/queries, handlers, validators
-│   ├── CWM.CleanArchitecture.Infrastructure/    # EF Core, Identity, JWT, caching, repositories
-│   ├── CWM.CleanArchitecture.Api/               # Minimal API endpoints, Scalar, middleware
-│   ├── CWM.CleanArchitecture.AppHost/           # Aspire orchestration (PostgreSQL + Redis)
-│   └── CWM.CleanArchitecture.ServiceDefaults/   # OpenTelemetry, health checks, resilience
+│   ├── CleanArchitecture.Domain/           # Entities, value objects, repository interfaces
+│   ├── CleanArchitecture.Application/       # CQRS commands/queries, handlers, validators
+│   ├── CleanArchitecture.Infrastructure/    # EF Core, Identity, JWT, caching, repositories
+│   ├── CleanArchitecture.Api/               # Minimal API endpoints, Scalar, middleware
+│   ├── CleanArchitecture.AppHost/           # Aspire orchestration (PostgreSQL + Redis)
+│   └── CleanArchitecture.ServiceDefaults/   # OpenTelemetry, health checks, resilience
 ├── tests/
-│   ├── CWM.CleanArchitecture.Architecture.Tests/ # Dependency rule enforcement (9 tests)
-│   └── CWM.CleanArchitecture.Application.UnitTests/ # Handler unit tests (8 tests)
+│   ├── CleanArchitecture.Architecture.Tests/ # Dependency rule enforcement (9 tests)
+│   └── CleanArchitecture.Application.UnitTests/ # Handler unit tests (8 tests)
 ├── Directory.Build.props                         # .NET 10, C# latest, nullable enabled
 ├── Directory.Packages.props                      # Central Package Management
 ├── .editorconfig                                 # Code style rules
@@ -81,7 +81,7 @@ Built with the latest packages, zero commercial dependencies, and everything you
 ### Run with Aspire (recommended)
 
 ```bash
-cd src/CWM.CleanArchitecture.AppHost
+cd src/CleanArchitecture.AppHost
 dotnet run
 ```
 
@@ -100,7 +100,7 @@ Open the Aspire Dashboard URL from the console output to see your telemetry.
 docker compose up -d
 
 # Run the API
-cd src/CWM.CleanArchitecture.Api
+cd src/CleanArchitecture.Api
 dotnet run
 ```
 
@@ -109,14 +109,14 @@ dotnet run
 Navigate to `https://localhost:7200/scalar/v1` for the interactive Scalar API docs.
 
 **Default admin credentials** (seeded automatically):
-- Email: `admin@cwm.dev`
+- Email: `admin@dev`
 - Password: `Admin@123`
 
 ### Run Tests
 
 ```bash
 cd src
-dotnet test CWM.CleanArchitecture.slnx
+dotnet test CleanArchitecture.slnx
 ```
 
 ## Sample: Todos Feature
